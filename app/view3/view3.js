@@ -16,15 +16,11 @@ angular
   .controller("View3Ctrl", function ($scope, ergastAPIservice) {
     $scope.nameFilter = null;
     $scope.driversList = [];
-    ergastAPIservice.getDrivers().then(
-      function successCallback(response) {
-        $scope.driversList = response;
-        console.log($scope.driversList, "hello");
-        // $scope.driversList =
-        //   response.MRData.StandingsTable.StandingsLists[0].DriverStandings;
-      },
-      function errorCallback(response) {
-        console.log(response.MRData, "error found");
-      },
-    );
+    ergastAPIservice.get().then(function (response) {
+      $scope.driversList = [];
+      $scope.driversList = response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+      console.log($scope.driversList, "response");
+
+    }, function (response) {
+    });
   });
