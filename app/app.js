@@ -6,6 +6,7 @@ angular
     "myApp.view1",
     "myApp.view2",
     "myApp.view3",
+    "myApp.view4",
     "myApp.version",
   ])
 
@@ -37,6 +38,10 @@ angular
         .when("/view3", {
           templateUrl: "view3/view3.html",
           controller: "View3Ctrl",
+        })
+        .when("/view4/:id", {
+          templateUrl: "view4/view4.html",
+          controller: "View4Ctrl",
         })
         .otherwise({ redirectTo: "/view1" });
     },
